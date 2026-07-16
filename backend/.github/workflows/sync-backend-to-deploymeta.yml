@@ -1,0 +1,171 @@
+name: Sync backend to deploymeta
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: sync-backend-to-deploymeta
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  sync-backend:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Prepare tokens
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          DEPLOYMETA_TOKEN: ${{ secrets.DEPLOYMETA_TOKEN }}
+        run: |
+          CLEAN_GITHUB_TOKEN="$(printf '%s' "$GITHUB_TOKEN" | tr -d '[:space:]')"
+          CLEAN_DEPLOYMETA_TOKEN="$(printf '%s' "$DEPLOYMETA_TOKEN" | tr -d '[:space:]')"
+
+          echo "CLEAN_GITHUB_TOKEN=$CLEAN_GITHUB_TOKEN" >> "$GITHUB_ENV"
+          echo "CLEAN_DEPLOYMETA_TOKEN=$CLEAN_DEPLOYMETA_TOKEN" >> "$GITHUB_ENV"
+
+      - name: Clone primary CMC repo manually
+        run: |
+          git clone --branch "${GITHUB_REF_NAME}" \
+            "https://x-access-token:${CLEAN_GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" \
+            source
+
+      - name: Configure deploymeta git authentication
+        run: |
+          git config --global credential.helper store
+
+          cat > ~/.git-credentials <<EOF
+          https://x-access-token:${CLEAN_DEPLOYMETA_TOKEN}@github.com
+          EOF
+
+          chmod 600 ~/.git-credentials
+
+      - name: Clone deploymeta staging branch
+        run: |
+          git clone --depth 1 --branch staging \
+            "https://github.com/codebygourav/telehealth-depolymeta.git" \
+            target
+
+      - name: Sync changed backend files
+        shell: bash
+        run: |
+          set -e
+
+          BEFORE_SHA="${{ github.event.before }}"
+          AFTER_SHA="${{ github.event.after }}"
+
+          if [ -z "$AFTER_SHA" ]; then
+            AFTER_SHA="HEAD"
+          fi
+
+          cd source
+
+          if [ "$BEFORE_SHA" = "0000000000000000000000000000000000000000" ] || \
+             [ -z "$BEFORE_SHA" ] || \
+             ! git cat-file -e "$BEFORE_SHA" 2>/dev/null; then
+            git diff-tree --no-commit-id --name-only -r "$AFTER_SHA" > ../changed_files.txt
+          else
+            git diff --name-only "$BEFORE_SHA" "$AFTER_SHA" > ../changed_files.txt
+          fi
+
+          cd ..
+
+          mkdir -p target/backend
+          : > filtered_files.txt
+
+          while IFS= read -r file; do
+            [ -z "$file" ] && continue
+            [ ! -f "source/$file" ] && continue
+
+            case "$file" in
+              .git|.git/*) continue ;;
+              .github|.github/*) continue ;;
+
+              .env|.env.*) continue ;;
+
+              vendor|vendor/*) continue ;;
+              node_modules|node_modules/*) continue ;;
+
+              storage|storage/*) continue ;;
+              bootstrap/cache|bootstrap/cache/*) continue ;;
+              public/storage|public/storage/*) continue ;;
+
+              *.log) continue ;;
+
+              composer.lock) continue ;;
+              package-lock.json) continue ;;
+              yarn.lock) continue ;;
+              pnpm-lock.yaml) continue ;;
+
+              resources/css/*) continue ;;
+              resources/js/*) continue ;;
+
+              public/*) continue ;;
+
+              config/deploymeta.php) continue ;;
+              routes/deploymeta.php) continue ;;
+              app/Services/DeployMeta/*) continue ;;
+            esac
+
+            echo "$file" >> filtered_files.txt
+          done < changed_files.txt
+
+          if [ ! -s filtered_files.txt ]; then
+            echo "No files to sync."
+            exit 0
+          fi
+
+          echo "Files selected for sync:"
+          cat filtered_files.txt
+
+          while IFS= read -r file; do
+            SOURCE_FILE="source/$file"
+            TARGET_FILE="target/backend/$file"
+
+            mkdir -p "$(dirname "$TARGET_FILE")"
+
+            if [ ! -f "$TARGET_FILE" ] || ! cmp -s "$SOURCE_FILE" "$TARGET_FILE"; then
+              cp -p "$SOURCE_FILE" "$TARGET_FILE"
+              echo "Updated: $file"
+            else
+              echo "Unchanged: $file"
+            fi
+          done < filtered_files.txt
+
+      - name: Check changes
+        id: changes
+        working-directory: target
+        run: |
+          if [[ -n "$(git status --porcelain backend)" ]]; then
+            echo "has_changes=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Commit and push to staging
+        if: steps.changes.outputs.has_changes == 'true'
+        working-directory: target
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git checkout staging
+          git add backend
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+
+          git commit -m "sync: update backend from CMC"
+          git push origin staging
+
+      - name: No changes found
+        if: steps.changes.outputs.has_changes == 'false'
+        run: |
+          echo "No backend changes to sync."

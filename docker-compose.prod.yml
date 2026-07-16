@@ -1,0 +1,121 @@
+services:
+  # ==============================
+  # PATIENT
+  # ==============================
+  patient:
+    build:
+      context: ./frontend/patient
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_API_BASE_URL: ${NEXT_PUBLIC_API_BASE_URL}
+
+    container_name: dr-sushil-patient
+
+    ports:
+      - "8201:3000"
+
+    restart: unless-stopped
+
+  # ==============================
+  # DOCTOR
+  # ==============================
+  doctor:
+    image: dr-sushil-doctor:latest
+    build:
+      context: ./frontend/doctor
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_API_BASE_URL: ${NEXT_PUBLIC_API_BASE_URL}
+        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL}
+
+    container_name: dr-sushil-doctor
+
+    ports:
+      - "8200:3000"
+
+    restart: unless-stopped
+
+  # ==============================
+  # BACKEND APP
+  # ==============================
+  app:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+
+    container_name: dr-sushil-backend-app
+    working_dir: /var/www/html
+
+    volumes:
+      - ./backend:/var/www/html
+
+    depends_on:
+      - db
+
+    restart: unless-stopped
+
+  # ==============================
+  # NGINX
+  # ==============================
+  web:
+    image: nginx:alpine
+
+    container_name: dr-sushil-backend-web
+
+    ports:
+      - "8210:80"
+
+    volumes:
+      - ./backend:/var/www/html
+      - ./backend/nginx/default.conf:/etc/nginx/conf.d/default.conf
+
+    depends_on:
+      - app
+
+    restart: unless-stopped
+
+  # ==============================
+  # MYSQL
+  # ==============================
+  db:
+    image: mysql:8
+    container_name: dr-sushil-db
+    # Resource limits to stay within Hostinger 75% CPU cap and limit RAM/I/O
+    deploy:
+      resources:
+        limits:
+          cpus: "0.75"   # 75% of a single core
+          memory: 2g       # adjust as needed
+        reservations:
+          memory: 1g
+    # Mount a custom MySQL config to tune performance and avoid heavy queries
+    volumes:
+      - dr_sushil_db_data:/var/lib/mysql
+      - ./my.cnf:/etc/mysql/conf.d/custom.cnf
+    environment:
+      MYSQL_DATABASE: cmc_telehealth
+      MYSQL_USER: cmc_user
+      MYSQL_PASSWORD: cmc_pass
+      MYSQL_ROOT_PASSWORD: root
+    restart: unless-stopped
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+
+    container_name: dr-sushil-phpmyadmin
+
+    platform: linux/amd64
+
+    depends_on:
+      - db
+
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      MYSQL_ROOT_PASSWORD: root
+
+    ports:
+      - "8281:80"
+
+volumes:
+  dr_sushil_db_data:

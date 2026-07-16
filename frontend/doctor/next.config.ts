@@ -1,0 +1,32 @@
+import withPWAInit from "@ducanh2912/next-pwa";
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  reactStrictMode: true,
+  output: "standalone",
+  basePath: "/doctor",
+  compiler: {
+    removeConsole: process.env.NODE_ENV !== "development",
+  },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "dr-sushil.deploymeta.com",
+        pathname: "/**",
+      },
+    ],
+  },
+  turbopack: {},
+};
+
+const withPWA = withPWAInit({
+  dest: "public",
+  register: true,
+  disable: process.env.NODE_ENV === "development",
+});
+
+export default withPWA(nextConfig);

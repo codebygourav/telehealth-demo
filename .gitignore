@@ -1,0 +1,36 @@
+# OS Files
+.DS_Store
+Thumbs.db
+
+# VSCode settings
+.vscode/
+
+# Dependencies
+node_modules/
+vendor/
+backend/vendor/
+backend/node_modules/
+frontend/patient/node_modules/
+frontend/doctor/node_modules/
+
+# Next.js Build Outputs
+.next/
+frontend/patient/.next/
+frontend/doctor/.next/
+*.tsbuildinfo
+frontend/patient/tsconfig.tsbuildinfo
+frontend/doctor/tsconfig.tsbuildinfo
+
+# Local Environment Variables
+.env
+.env.local
+.env.production
+.env.development
+.env.staging
+backend/.env
+frontend/patient/.env
+frontend/doctor/.env
+
+# Temporary / Build artifacts
+*.tar
+*.log

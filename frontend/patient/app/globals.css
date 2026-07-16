@@ -1,0 +1,920 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --global-radius: var(--global-radius);
+  --global-radius-10: var(--global-radius-10);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-inter: var(--font-inter);
+  --font-heading: var(--font-sans);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+
+  --color-feature-green: var(--feature-green);
+  --color-secondary-menu-color: #F5F6F8;
+
+
+  --color-primary-container: #055BD9;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #6f9c84;
+
+  --color-surface: #f7f9fb;
+  --color-surface-container: #eceef0;
+  --color-surface-container-low: #f2f4f6;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-tint: #3b6751;
+
+  --color-on-surface: #191c1e;
+  --color-on-surface-variant: #414943;
+
+  --color-secondary-container: #d1e4d7;
+  --color-on-secondary-container: #55675c;
+
+  --color-tertiary-fixed: #ffdad9;
+  --color-on-tertiary-fixed: #340f12;
+
+  --color-outline-variant: #c1c8c2;
+
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 2rem;
+  --container-max-width: 1440px;
+
+  --global-h1-24: 24px;
+  --global-h2-22: 22px;
+  --global-h3-20: 20px;
+  --global-h4-18: 18px;
+  --global-h5-16: 16px;
+  --global-span-14: 14px;
+  --global-span-12: 12px;
+  --global-span-16: 16px;
+
+}
+
+:root {
+  --background: oklch(1 0 0);
+  --global-radius: 6px;
+  --global-radius-10: 10px;
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: #055BD9;
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: #055BD9;
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: #055BD9;
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: #055BD9;
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+  --success: oklch(0.627 0.194 149.214);
+  --success-foreground: oklch(0.985 0 0);
+  --feature-green: #6f9c84;
+  --secondary-menu-color: #F5F6F8;
+  --container-max-width: 1440px;
+  --light-gray: #F5F6F8;
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --global-radius-10: 10px;
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+  --success: oklch(0.448 0.145 149.214);
+  --success-foreground: oklch(0.985 0 0);
+  --feature-green: #6f9c84;
+  --secondary-menu-color: #F5F6F8;
+  --container-max-width: 1440px;
+  --light-gray: #F5F6F8;
+}
+
+@layer base {
+
+  html {
+    @apply font-sans;
+  }
+
+
+  h1 {
+    font-size: var(--global-h1-24);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  h2 {
+    font-size: var(--global-h2-22);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  h3 {
+    font-size: var(--global-h3-20);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+    color: #055BD9;
+  }
+
+  h4 {
+    font-size: var(--global-h4-18);
+    font-weight: var(--font-weight-semibold);
+    line-height: 30px;
+  }
+
+  h5 {
+    font-size: var(--global-h5-16);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  label {
+    font-size: var(--global-span-12);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  span {
+    font-size: var(--global-span-14);
+    font-weight: var(--font-weight-medium);
+    line-height: 19.5px;
+  }
+
+
+  button {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  input {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-normal);
+    line-height: 1.5;
+  }
+
+}
+
+@layer utilities {
+
+  /* Custom text-size helpers (use these instead of `text-[12px]`) */
+  .text-span-12,
+  .span-12 {
+    font-size: var(--global-span-12);
+    font-weight: var(--font-weight-bold);
+    line-height: 14px;
+  }
+
+  .text-span-16 {
+    font-size: var(--global-span-16);
+    font-weight: var(--font-weight-bold);
+    line-height: 16px;
+  }
+
+
+  .text-span-14 {
+    font-size: var(--global-span-14);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+}
+
+@layer components {
+
+  /* Global button styles */
+  .btn-primary {
+    border-radius: var(--global-radius);
+    @apply font-bold transition-colors bg-primary text-primary-foreground hover:bg-primary/95;
+  }
+
+  /* Full-width primary CTA button used across cards/forms */
+  .btn-primary-cta,
+  .button {
+    border-radius: var(--global-radius);
+    font-weight: bold !important;
+    height: 39px !important;
+    @apply text-base !font-bold transition-colors bg-primary text-primary-foreground hover:bg-primary/95 py-3.5 px-5;
+  }
+
+  .btn-primary-cta-outline {
+    border-radius: var(--global-radius);
+    font-weight: bold !important;
+    height: 39px !important;
+    @apply text-base !font-bold transition-colors bg-primary text-primary-foreground hover:bg-primary/95 py-3.5 px-5;
+    border: 1px solid #E7E8EB;
+    background: #FFFFFF;
+    color: #055BD9;
+  }
+
+  .btn-primary-without-transition {
+    border-radius: var(--global-radius);
+    @apply mt-5 text-base font-bold transition-colors bg-primary text-primary-foreground hover:bg-primary/95;
+  }
+
+
+  /* Animate trailing icon (e.g. ChevronRight) consistently */
+  .btn-primary>svg:last-child,
+  .btn-primary-cta>svg:last-child,
+  btn-primary-cta a>svg:last-child {
+    @apply ml-2 transition-transform duration-200 size-4;
+  }
+
+  .btn-primary:hover>svg:last-child,
+  .btn-primary-cta:hover>svg:last-child {
+    transform: translateX(0.25rem);
+  }
+}
+
+.html-content h3 {
+  font-size: 16px;
+  font-weight: 500;
+  color: #055BD9;
+  margin-top: 16px;
+  margin-bottom: 6px;
+}
+
+.html-content p {
+  font-size: 14px;
+  line-height: 14px;
+  color: #4D4D4D;
+  margin-bottom: 10px;
+}
+
+.html-content ul {
+  margin-top: 8px;
+  padding-left: 16px;
+}
+
+.html-content li {
+  margin-bottom: 8px;
+}
+
+.feature-text-green {
+  color: var(--feature-green) !important;
+}
+
+.html-content strong {
+  font-weight: 500;
+  color: #1F1E1E;
+}
+
+@layer utilities {
+  .status-confirmed {
+    @apply text-blue-800 bg-blue-100;
+  }
+
+  .global-radius {
+    border-radius: var(--global-radius);
+  }
+
+  .global-radius-10 {
+    border-radius: var(--global-radius-10);
+  }
+
+  .status-failed {
+    @apply text-red-800 bg-red-100;
+  }
+
+  .status-completed {
+    @apply text-green-800 bg-green-100;
+  }
+
+  .status-rescheduled {
+    @apply text-yellow-800 bg-yellow-100;
+  }
+
+  .status-default {
+    @apply text-gray-800 bg-gray-100;
+  }
+
+
+
+  .heading-xl {
+    @apply text-4xl font-bold;
+  }
+
+  .heading-lg {
+    @apply text-3xl font-semibold;
+  }
+
+  .heading-md {
+    @apply text-2xl font-semibold;
+  }
+
+  .heading-sm {
+    @apply text-[18px] font-semibold;
+  }
+
+
+  .text-body {
+    @apply text-base text-muted-foreground;
+  }
+
+  .text-small {
+    @apply text-sm text-muted-foreground;
+  }
+
+  .text-xs-custom {
+    @apply text-xs text-muted-foreground;
+  }
+
+  .text-primary-strong {
+    @apply font-semibold text-primary;
+  }
+
+  .text-muted-light {
+    @apply text-gray-400;
+  }
+
+  .shadow-card-sm {
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+  }
+
+  .custom-card-design {
+    border: 1px solid #E7E8EB;
+    box-shadow: 0px 2px 4px 0px #0000001A;
+    background: #FFFFFF;
+    border-radius: 10px !important;
+  }
+
+
+  .shadow-card {
+    box-shadow: 0px 1px 17px 0px #0000001A;
+  }
+
+  .primary-card-shadow {
+    background: #055BD9;
+    box-shadow: 0px 2px 4px 0px #0000001A;
+
+  }
+
+  .shadow-card-lg {
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+    border: 1px solid #E7E8EB;
+  }
+
+  .border-light-gray {
+    border: 1px solid #E7E8EB;
+  }
+
+
+  .border-b {
+    border-bottom: 1px solid #E7E8EB !important;
+  }
+
+  .border-t {
+    border-top: 1px solid #E7E8EB !important;
+  }
+
+  .secondary-menu-color {
+    background-color: var(--color-secondary-menu-color);
+  }
+
+  .container-max-width-full {
+    max-width: 100%;
+  }
+
+  .container-max-width {
+    max-width: var(--container-max-width);
+  }
+
+  .full-bleed {
+    position: relative;
+    width: 99vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    max-width: 100vw;
+  }
+
+  .full-bleed-bg {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 100vw;
+    transform: translateX(-50%);
+  }
+
+  .bg-light-gray {
+    background-color: var(--light-gray);
+  }
+
+  .card-heading-size {
+    font-size: 20px !important;
+    color: #1F1E1E;
+    font-weight: 600 !important;
+  }
+
+  .hover-bg-light-gray:hover {
+    background-color: var(--light-gray);
+  }
+
+  .card-sub-heading-size {
+    font-size: 16px !important;
+    color: #4D4D4D !important;
+    font-weight: 400 !important;
+  }
+}
+
+@layer utilities {
+
+  .g-h1 {
+    font-size: var(--global-h1-24);
+    /* 24px */
+    font-weight: 600;
+    line-height: 1.4;
+    color: #1F1E1E;
+  }
+
+  .g-h2 {
+    font-size: var(--global-h2-22);
+    /* 22px */
+    font-weight: 600;
+    line-height: 1.4;
+    color: #1F1E1E;
+  }
+
+  /* H3 — Sub-section title (primary blue accent) */
+  .g-h3 {
+    font-size: var(--global-h3-20);
+    /* 20px */
+    font-weight: 500;
+    line-height: 1.5;
+    color: #055BD9;
+  }
+
+  /* H4 — Card / widget title */
+  .g-h4 {
+    font-size: var(--global-h4-18);
+    /* 18px */
+    font-weight: 500;
+    line-height: 1.5;
+    color: #1F1E1E;
+  }
+
+  /* H5 — Small heading / label heading */
+  .g-h5 {
+    font-size: var(--global-h5-16);
+    /* 16px */
+    font-weight: 500;
+    line-height: 1.5;
+    color: #1F1E1E;
+  }
+}
+
+
+/* ──────────────────────────────────────────────
+   § 2. TYPOGRAPHY — Body & Inline Text
+      Usage: <p class="g-body-md">, <span class="g-text-sm">
+   ────────────────────────────────────────────── */
+@layer utilities {
+
+  /* Standard body copy */
+  .g-body-md {
+    font-size: var(--global-span-14);
+    /* 14px */
+    font-weight: 400;
+    line-height: 1.6;
+    color: #4D4D4D;
+  }
+
+  /* Small helper / caption text */
+  .g-body-sm {
+    font-size: var(--global-span-12);
+    /* 12px */
+    font-weight: 400;
+    line-height: 1.5;
+    color: #6B7280;
+  }
+
+  /* Medium-weight inline text (span / label) */
+  .g-text-md {
+    font-size: var(--global-span-14);
+    /* 14px */
+    font-weight: bold;
+    line-height: 1.5;
+  }
+
+  /* Small medium-weight text */
+  .g-text-sm {
+    font-size: var(--global-span-12);
+    /* 12px */
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  /* Muted / secondary text colour */
+  .g-text-muted {
+    color: #6B7280;
+  }
+
+  .g-text-primary-muted {
+    color: #a2a2a4;
+  }
+
+  /* Primary brand text colour */
+  .g-text-primary {
+    color: #055BD9;
+  }
+
+  /* Dark text for headings / emphasis */
+  .g-text-dark {
+    color: #1F1E1E;
+  }
+
+  /* Medium-dark for body content */
+  .g-text-body {
+    color: #4D4D4D;
+  }
+}
+
+
+
+@layer utilities {
+
+  .g-shadow-xs {
+    box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.06);
+  }
+
+  .g-shadow-sm {
+    box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.04);
+  }
+
+
+  .g-shadow-md {
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.10);
+    border: 1px solid #E7E8EB;
+  }
+
+  .g-shadow-lg {
+    box-shadow: 0px 1px 17px 0px rgba(0, 0, 0, 0.10);
+  }
+
+  /* Heavy elevation — dialogs / popovers */
+  .g-shadow-xl {
+    box-shadow: 0px 8px 24px 0px rgba(0, 0, 0, 0.12);
+  }
+
+  /* Primary (blue) card glow */
+  .g-shadow-primary {
+    background: #055BD9;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.10);
+  }
+}
+
+
+/* ──────────────────────────────────────────────
+   § 4. BACKGROUND COLOURS
+      Usage: <section class="g-bg-light-gray">
+   ────────────────────────────────────────────── */
+@layer utilities {
+
+  /* Page / section light-gray surface */
+  .g-bg-light-gray {
+    background-color: #F5F6F8;
+  }
+
+  /* Pure white surface */
+  .g-bg-white {
+    background-color: #ffffff;
+  }
+
+  /* Primary brand blue */
+  .g-bg-primary {
+    background-color: #055BD9;
+  }
+
+  /* Very light blue tint — info sections */
+  .g-bg-primary-light {
+    background-color: #EEF4FF;
+  }
+
+  /* Surface (near-white page background) */
+  .g-bg-surface {
+    background-color: #F7F9FB;
+  }
+
+  /* Surface container — slightly darker surface */
+  .g-bg-surface-container {
+    background-color: #ECEEF0;
+  }
+
+  /* Light success green background */
+  .g-bg-success-light {
+    background-color: #E6F4EC;
+  }
+
+  /* Light destructive red background */
+  .g-bg-error-light {
+    background-color: #FEE2E2;
+  }
+}
+
+
+/* ──────────────────────────────────────────────
+   § 5. BORDER RADIUS
+      Usage: <div class="g-radius-sm">
+   ────────────────────────────────────────────── */
+@layer utilities {
+
+  /* 4px — tags, chips */
+  .g-radius-xs {
+    border-radius: 4px;
+  }
+
+  /* 6px — buttons, inputs (default global) */
+  .g-radius-sm {
+    border-radius: var(--global-radius);
+    /* 6px */
+  }
+
+  /* 10px — cards, panels */
+  .g-radius-md {
+    border-radius: var(--global-radius-10);
+    /* 10px */
+  }
+
+  /* 16px — modals, large cards */
+  .g-radius-lg {
+    border-radius: 16px;
+  }
+
+  /* 24px — hero sections, pills */
+  .g-radius-xl {
+    border-radius: 24px;
+  }
+
+  /* Full pill / avatar */
+  .g-radius-full {
+    border-radius: 9999px;
+  }
+}
+
+
+/* ──────────────────────────────────────────────
+   § 6. BORDER
+      Usage: <div class="g-border">
+   ────────────────────────────────────────────── */
+@layer utilities {
+
+  /* Standard light border */
+  .g-border {
+    border: 1px solid #E7E8EB;
+  }
+
+  /* Subtle divider */
+  .g-border-light {
+    border: 1px solid rgba(245, 246, 248, 1);
+  }
+
+  /* Primary brand border */
+  .g-border-primary {
+    border: 1px solid #055BD9;
+  }
+}
+
+
+/* ──────────────────────────────────────────────
+   § 7. LAYOUT — Container & Spacing
+      Usage: <main class="g-container">
+   ────────────────────────────────────────────── */
+@layer utilities {
+
+  /* Centred max-width page container */
+  .g-container {
+    width: 100%;
+    max-width: var(--container-max-width);
+    /* 1640px */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.25rem;
+    /* 20px */
+    padding-right: 1.25rem;
+  }
+
+  /* Horizontal padding only (no max-width) */
+  .g-section-px {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  /* Standard section vertical rhythm */
+  .g-section-py {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  /* Card internal padding */
+  .g-card-p {
+    padding: 1.25rem;
+    /* 20px */
+  }
+
+  /* Full-bleed breakout (escape centred container) */
+  .g-full-bleed {
+    position: relative;
+    width: 99vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    max-width: 100vw;
+  }
+}
+
+
+/* ──────────────────────────────────────────────
+   § 8. CARD STYLES
+      Usage: <div class="g-card">
+   ────────────────────────────────────────────── */
+@layer utilities {
+
+  /* Default white card */
+  .g-card {
+    background: #ffffff;
+    border: 1px solid #E7E8EB;
+    border-radius: var(--global-radius-10);
+    /* 10px */
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.10);
+  }
+
+  /* Flat card — no shadow, border only */
+  .g-card-flat {
+    background: #ffffff;
+    border: 1px solid #E7E8EB;
+    border-radius: var(--global-radius-10);
+  }
+
+  /* Primary blue card */
+  .g-card-primary {
+    background: #055BD9;
+    border-radius: var(--global-radius-10);
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.10);
+    color: #ffffff;
+  }
+
+  /* Light-gray surface card */
+  .g-card-surface {
+    background: #F5F6F8;
+    border-radius: var(--global-radius-10);
+  }
+}
+
+
+/* ──────────────────────────────────────────────
+   § 9. BADGE / STATUS CHIPS
+      Usage: <span class="g-badge g-badge-success">
+   ────────────────────────────────────────────── */
+@layer utilities {
+
+  /* Base badge */
+  .g-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 10px;
+    font-size: var(--global-span-12);
+    /* 12px */
+    font-weight: 500;
+    line-height: 1.5;
+    border-radius: 9999px;
+  }
+
+  .g-badge-primary {
+    background-color: #EEF4FF;
+    color: #055BD9;
+  }
+
+  .g-badge-success {
+    background-color: #E6F4EC;
+    color: #15803D;
+  }
+
+  .g-badge-warning {
+    background-color: #FEF9EC;
+    color: #B45309;
+  }
+
+  .g-badge-error {
+    background-color: #FEE2E2;
+    color: #DC2626;
+  }
+
+  .g-badge-neutral {
+    background-color: #F0F1F3;
+    color: #6B7280;
+  }
+}
+
+
+/* ──────────────────────────────────────────────
+   § 10. DIVIDERS
+      Usage: <hr class="g-divider">
+   ────────────────────────────────────────────── */
+@layer utilities {
+  .g-divider {
+    border: none;
+    border-top: 1px solid #E7E8EB;
+    margin: 1rem 0;
+  }
+
+  .g-divider-light {
+    border: none;
+    border-top: 1px solid #F0F1F3;
+    margin: 0.75rem 0;
+  }
+
+  .g-success-badge {
+    background: rgba(244, 251, 247, 1);
+    color: rgba(24, 206, 30, 1) !important;
+    border-color: transparent !important;
+  }
+}
