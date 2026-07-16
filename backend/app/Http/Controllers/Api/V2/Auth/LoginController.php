@@ -171,7 +171,14 @@ class LoginController extends Controller
         )->plainTextToken;
 
         // Get user role
-        $role = $user->getRoleNames()->first() ?? 'user';
+        // Determine role, prioritize doctor if present
+            if ($user->hasRole('doctor')) {
+                $role = 'doctor';
+            } elseif ($user->hasRole('patient')) {
+                $role = 'patient';
+            } else {
+                $role = $user->getRoleNames()->first() ?? 'user';
+            }
 
         // Eagerly load doctor or patient relationship to prevent null property issues
         if ($user->hasRole('doctor')) {
