@@ -39,6 +39,12 @@ class AppServiceProvider extends ServiceProvider
         $forwardedProto = strtolower((string) request()->header('x-forwarded-proto'));
         $serverHttps    = strtolower((string) ($_SERVER['HTTPS'] ?? ''));
         $xForwardedSsl  = strtolower((string) request()->header('x-forwarded-ssl'));
+        $requestHost    = strtolower((string) request()->getHost());
+
+        $isLocalHost = in_array($requestHost, ['localhost', '127.0.0.1', '::1'], true)
+            || str_starts_with($requestHost, '192.168.')
+            || str_starts_with($requestHost, '10.')
+            || preg_match('/^172\.(1[6-9]|2[0-9]|3[0-1])\./', $requestHost) === 1;
 
         $isHttps = request()->isSecure()
             || str_contains($forwardedProto, 'https')
@@ -46,7 +52,7 @@ class AppServiceProvider extends ServiceProvider
             || $xForwardedSsl === 'on'
             || str_starts_with((string) config('app.url'), 'https://');
 
-        if ($isHttps) {
+        if ($isHttps && ! $isLocalHost) {
             URL::forceScheme('https');
         }
 
@@ -55,7 +61,7 @@ class AppServiceProvider extends ServiceProvider
         // Do NOT guard with runningInConsole() — queue workers need this too.
         $appUrl = rtrim((string) config('app.url'), '/');
 
-        if ($isHttps) {
+        if ($isHttps && ! $isLocalHost) {
             $appUrl = preg_replace('#^http://#', 'https://', $appUrl);
         }
 
@@ -89,7 +95,7 @@ class AppServiceProvider extends ServiceProvider
         });
 
         Event::subscribe(LogPushNotificationStatus::class);
-        
+
         Relation::morphMap([
             'Doctor' => Doctor::class,
             'Patient' => Patient::class,
