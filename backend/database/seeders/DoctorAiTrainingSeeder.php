@@ -10,7 +10,7 @@ class DoctorAiTrainingSeeder extends Seeder
     public function run(): void
     {
         $trainingByEmail = [
-            'mjoseph@gmail.com' => [
+            'dr.sushilgupta@gmail.com' => [
                 'pronunciation_dictionary' => [
                     ['doctor_says' => 'Panta', 'ai_converts_to' => 'Pantoprazole'],
                     ['doctor_says' => 'PCM', 'ai_converts_to' => 'Paracetamol'],
@@ -59,56 +59,6 @@ class DoctorAiTrainingSeeder extends Seeder
                     'MRI Brain',
                     'CT Scan',
                     '2D Echo',
-                ],
-            ],
-            'kjoseph@gmail.com' => [
-                'pronunciation_dictionary' => [
-                    ['doctor_says' => 'Ecosprin', 'ai_converts_to' => 'Ecosprin'],
-                    ['doctor_says' => 'Diclo', 'ai_converts_to' => 'Diclofenac'],
-                    ['doctor_says' => 'Cal D', 'ai_converts_to' => 'Calcium with Vitamin D'],
-                    ['doctor_says' => 'Aceclo', 'ai_converts_to' => 'Aceclofenac'],
-                ],
-                'speech_word_corrections' => [
-                    ['heard_word' => 'mail', 'corrected_word' => 'meal'],
-                    ['heard_word' => 'dick low', 'corrected_word' => 'Diclo'],
-                    ['heard_word' => 'ace claw', 'corrected_word' => 'Aceclo'],
-                    ['heard_word' => 'cal dee', 'corrected_word' => 'Cal D'],
-                ],
-                'medicine_shortcuts' => [
-                    ['medicine' => 'Aceclofenac 100mg', 'shortcut' => 'Aceclo', 'priority' => 5],
-                    ['medicine' => 'Diclofenac Gel', 'shortcut' => 'Diclo', 'priority' => 4],
-                    ['medicine' => 'Calcium with Vitamin D', 'shortcut' => 'Cal D', 'priority' => 4],
-                    ['medicine' => 'Ecosprin 75', 'shortcut' => 'Ecosprin', 'priority' => 4],
-                ],
-                'common_diagnoses' => [
-                    'Osteoarthritis Knee',
-                    'Low Back Pain',
-                    'Cervical Spondylosis',
-                    'Shoulder Impingement',
-                    'Tennis Elbow',
-                    'Ankle Sprain',
-                    'Fracture Follow-up',
-                    'Post-op Rehabilitation',
-                ],
-                'frequently_used_instructions' => [
-                    'Apply ice pack for 15 minutes thrice daily',
-                    'Avoid squatting and stairs',
-                    'Use knee brace during walking',
-                    'Start physiotherapy from tomorrow',
-                    'Weight bearing as tolerated',
-                    'Review after 10 days',
-                    'Do ROM exercises twice daily',
-                    'Avoid heavy lifting for 2 weeks',
-                ],
-                'procedures_investigations' => [
-                    'X-Ray Knee AP/Lateral',
-                    'X-Ray Lumbar Spine',
-                    'MRI Knee',
-                    'MRI Spine',
-                    'Serum Vitamin D',
-                    'CRP',
-                    'ESR',
-                    'Bone Density Scan (DEXA)',
                 ],
             ],
         ];

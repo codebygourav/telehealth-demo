@@ -16,56 +16,42 @@ class DoctorSeeder extends Seeder
     {
         $doctors = [
             [
-                'first_name' => 'M Joseph',
-                'last_name' => 'John',
-                'email' => 'mjoseph@gmail.com',
+                'first_name' => 'Dr. Sushil',
+                'last_name' => 'Gupta',
+                'email' => 'dr.sushilgupta@gmail.com',
                 'gender' => GenderOption::MALE->value,
-                'department_name' => 'Oral and Maxillofacial Surgery',
+                'department_name' => 'Pulmonologist',
                 'city' => 'Ludhiana',
                 'state' => 'Punjab',
                 'career_start_year' => 2022,
-                'sub_title' => 'MD, DM, MBA (HHSM)',
-                'medical_license_number' => '13968-A',
+                'sub_title' => 'MBBS, MD, DNB - Pulmonology',
+                'medical_license_number' => '2005081408',
                 'languages_known' => [LanguageOption::ENGLISH->value, LanguageOption::HINDI->value, LanguageOption::PUNJABI->value, LanguageOption::TELUGU->value],
-                'bio' => 'Iam an OMF surgeon specializing in head and neck surgery performing minor and major maxillofacial surgery along with Oral oncology cases at the department of OMFS, CDC.',
-                'description' => 'OMF surgeon specializing in head and neck surgery, oral oncology, and major maxillofacial procedures at the department of OMFS, CDC.',
-                'specializations_info' => 'Head and neck surgery, Oral and Maxillofacial surgery',
-                'key_procedures_info' => 'Oncological resections, flap surgeries, dental implants, third molar surgery, maxillofacial trauma, cyst enucleation, odontogenic tumour removal',
-                'memberships_info' => 'Life member - Association of Oral & Maxillofacial Surgeons of India',
-                'availability_info' => 'Tuesday, Thursday',
+                'bio' => 'Dr. Sushil Gupta is a senior consultant Pulmonologist and General Physician serving Ludhiana
+and the wider Punjab region. Trained at premier medical institutions and certified in
+Respiratory Diseases (DNB) and Critical Care (IDCCM), he blends modern diagnostics with a
+warm, listening approach — so every patient feels heard, understood and cared for.
+As Additional Director at Fortis Hospital, Ludhiana, he leads complex respiratory cases while
+running his private clinic for patients who prefer a more personal, unhurried consultation. His
+philosophy is simple — treat the person, not just the report.',
+                'description' => 'Senior consultant Pulmonologist and General Physician with extensive experience in treating
+respiratory and general medical conditions. Dedicated to evidence-based care and personalised
+patient management.',
+                'specializations_info' => 'Pneumonia, Bronchial Asthma, COPD, Interstitial Lung Diseases (ILD), Tuberculosis,
+Lung Cancer, Sleep Disorders (Obstructive Sleep Apnea), Pleural Effusion, Bronchoscopy',
+                'key_procedures_info' => 'Bronchoscopy with Biopsy and Bronchoalveolar Lavage (BAL),
+Thoracentesis (pleural fluid aspiration), Ultrasound-guided FNAC of lung/mediastinal,
+Non-invasive Ventilation (CPAP/BiPAP) for sleep apnoea and respiratory failure,
+Pulmonary Function Tests (PFT) interpretation and management',
+                'memberships_info' => 'Indian Chest Society, Indian Association of Bronchology, Indian Society of Critical Care Medicine, Association of Physicians of India, Indian Medical Association (IMA)',
+                'availability_info' => 'Fortis Hospital, Ludhiana (Mon-Fri 10 AM – 5 PM),
+Private Clinic, Sarabha Nagar (Mon,Wed,Fri 6 PM – 8 PM),Sat – 10 AM – 2 PM',
                 'professional_experience_info' => [
                     [
                         'title' => 'Senior Residency',
                         'institution' => 'OMFS, CDC',
                         'year_started' => '2022',
                         'description' => 'Focused clinical work in oral oncology, head and neck surgery, and maxillofacial reconstruction.',
-                    ],
-                ],
-            ],
-            [
-                'first_name' => 'Bobby',
-                'last_name' => 'John',
-                'email' => 'kjoseph@gmail.com',
-                'gender' => GenderOption::MALE->value,
-                'department_name' => 'Orthopedics',
-                'city' => 'Ludhiana',
-                'sub_title' => 'MBBS, MS (Orthopaedics), DNB, FRCS (Edin)',
-                'state' => 'Punjab',
-                'career_start_year' => 1989,
-                'medical_license_number' => '37510',
-                'languages_known' => [LanguageOption::ENGLISH->value, LanguageOption::HINDI->value, LanguageOption::PUNJABI->value, LanguageOption::MALAYALAM->value],
-                'bio' => 'With 38 years of experience delivering comprehensive orthopaedic excellence, Prof. Dr. Bobby John brings specialized expertise across the full spectrum of musculoskeletal care — from complex trauma reconstruction and limb-threatening infections, to precision arthroplasty and delicate pediatric orthopaedics. His practice unites three decades of surgical mastery with compassionate, evidence-based treatment for patients at every stage of life.',
-                'description' => 'Senior orthopaedic surgeon with broad expertise across trauma reconstruction, arthroplasty, paediatric orthopaedics, bone and joint infections, and evidence-based musculoskeletal care.',
-                'specializations_info' => 'Trauma surgery, Arthroplasty, Paediatric Orthopaedics, Bone and Joint infections',
-                'key_procedures_info' => 'Trauma and neglected trauma, hip and knee replacement surgery, bone and joint infections, non-operative care of the back, orthopaedic rheumatology',
-                'memberships_info' => 'Indian Orthopaedic Association, Paediatric Orthopaedic Association of India, A.O Trauma International',
-                'availability_info' => 'OPD Schedule Monday and Thursday (9:00 AM to 1:00 PM) with appointment, Wednesday 3:00 PM to 5:00 PM for children, evening clinic Monday and Thursday 4:00 PM to 6:00 PM by appointment, telemedicine Tuesday and Friday 5:00 PM to 7:00 PM by appointment.',
-                'professional_experience_info' => [
-                    [
-                        'title' => 'Senior Residency',
-                        'institution' => 'Orthopaedics',
-                        'year_started' => '1989',
-                        'description' => 'Long-standing orthopaedic practice focused on trauma, arthroplasty, infections, and paediatric orthopaedics.',
                     ],
                 ],
             ],

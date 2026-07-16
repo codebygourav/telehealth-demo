@@ -556,6 +556,6 @@ class AppointmentSeeder extends Seeder
     {
         $email = strtolower((string) ($doctor->user?->email ?? ''));
 
-        return in_array($email, ['mjoseph@gmail.com', 'kjoseph@gmail.com'], true);
+        return in_array($email, ['dr.sushilgupta@gmail.com'], true);
     }
 }
