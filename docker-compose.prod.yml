@@ -93,9 +93,9 @@ services:
       - dr_sushil_db_data:/var/lib/mysql
       - ./my.cnf:/etc/mysql/conf.d/custom.cnf
     environment:
-      MYSQL_DATABASE: cmc_telehealth
-      MYSQL_USER: cmc_user
-      MYSQL_PASSWORD: cmc_pass
+      MYSQL_DATABASE: dr_sushil_db
+      MYSQL_USER: dr_sushil_user
+      MYSQL_PASSWORD: dr_sushil_password
       MYSQL_ROOT_PASSWORD: root
     restart: unless-stopped
 
