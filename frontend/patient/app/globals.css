@@ -182,6 +182,10 @@
     @apply font-sans;
   }
 
+  h1, h2, h3, h4, h5, h6, .g-h1, .g-h2, .g-h3, .g-h4, .g-h5 {
+    font-family: var(--font-headings), serif !important;
+  }
+
 
   h1 {
     font-size: var(--global-h1-24);
