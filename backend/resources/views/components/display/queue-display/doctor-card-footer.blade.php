@@ -6,7 +6,7 @@
 @php
     $logo = asset('images/white-logo.png');
 
-    $settingLogo = Setting::getValue('app', 'logo');
+    $settingLogo = \App\Models\Setting::getValue('app', 'logo');
 
     if ($settingLogo && \Illuminate\Support\Facades\Storage::disk('public')->exists($settingLogo)) {
         $logo = \Illuminate\Support\Facades\Storage::url($settingLogo);
