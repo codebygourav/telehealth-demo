@@ -36,7 +36,7 @@
             </div>
             <div class="rounded-lg border border-gray-100 bg-gray-50 p-4">
                 <div class="text-xs font-bold uppercase text-gray-500">Doctor</div>
-                <div class="mt-1 text-sm font-semibold text-gray-950">Dr. {{ $doctorName }}</div>
+                <div class="mt-1 text-sm font-semibold text-gray-950"> {{ $doctorName }}</div>
             </div>
             <div class="rounded-lg border border-gray-100 bg-gray-50 p-4">
                 <div class="text-xs font-bold uppercase text-gray-500">Schedule</div>

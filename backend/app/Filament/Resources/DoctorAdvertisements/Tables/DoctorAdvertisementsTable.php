@@ -70,7 +70,7 @@ class DoctorAdvertisementsTable
                 TextColumn::make('doctors')
                     ->label('Doctors')
                     ->formatStateUsing(fn ($record) => $record->doctors->isNotEmpty()
-                        ? $record->doctors->map(fn ($doctor) => trim('Dr. ' . trim(($doctor->first_name ?? '') . ' ' . ($doctor->last_name ?? ''))))->implode(', ')
+                        ? $record->doctors->map(fn ($doctor) => trim('' . trim(($doctor->first_name ?? '') . ' ' . ($doctor->last_name ?? ''))))->implode(', ')
                         : 'All Doctors')
                     ->wrap()
                     ->toggleable(),

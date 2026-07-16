@@ -101,13 +101,13 @@ export default function Page() {
 
                                         <div className="flex-1 min-w-0">
                                             <h2 className="text-base sm:text-lg md:text-xl font-semibold text-primary truncate">
-                                                Dr. {review.doctor_name}
+                                                {review.doctor_name}
                                             </h2>
                                             <p className="text-xs sm:text-sm text-muted-foreground truncate">
                                                 {review.doctor_departments}
                                             </p>
 
-                                            
+
                                         </div>
                                     </div>
 
@@ -118,8 +118,8 @@ export default function Page() {
                                                 <Star
                                                     key={i}
                                                     className={`w-4 h-4 sm:w-5 sm:h-5 ${i < review.rating
-                                                            ? 'text-yellow-500 fill-yellow-500'
-                                                            : 'text-gray-300 fill-gray-300 dark:text-gray-600 dark:fill-gray-600'
+                                                        ? 'text-yellow-500 fill-yellow-500'
+                                                        : 'text-gray-300 fill-gray-300 dark:text-gray-600 dark:fill-gray-600'
                                                         }`}
                                                 />
                                             ))}

@@ -79,7 +79,7 @@ export function Header() {
   // For notification label (Name fallback)
   const name =
     user && (user.first_name || user.last_name)
-      ? `${user.role === "doctor" ? "Dr. " : ""}${user.first_name ?? ""} ${user.last_name ?? ""}`.trim()
+      ? `${user.role === "doctor" ? "" : ""}${user.first_name ?? ""} ${user.last_name ?? ""}`.trim()
       : "User";
 
 

@@ -63,7 +63,7 @@ class ListDoctorAdvertisements extends ListRecords
             'schedule' => $this->formatSchedule($record),
             'media_type' => ucfirst((string) ($record->media_type ?: 'image')),
             'doctors' => $record->doctors->isNotEmpty()
-                ? $record->doctors->map(fn($doctor) => trim('Dr. ' . trim(($doctor->first_name ?? '') . ' ' . ($doctor->last_name ?? ''))))->implode(', ')
+                ? $record->doctors->map(fn($doctor) => trim('' . trim(($doctor->first_name ?? '') . ' ' . ($doctor->last_name ?? ''))))->implode(', ')
                 : 'All doctors',
         ];
     }

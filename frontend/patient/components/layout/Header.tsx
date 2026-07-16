@@ -43,7 +43,7 @@ export function Header() {
 
   const name =
     user && (user.first_name || user.last_name)
-      ? `${user.role === "doctor" ? "Dr. " : ""}${user.first_name ?? ""} ${user.last_name ?? ""}`.trim()
+      ? `${user.role === "doctor" ? "" : ""}${user.first_name ?? ""} ${user.last_name ?? ""}`.trim()
       : "User";
 
   const navItems: NavItem[] = [
@@ -121,7 +121,7 @@ export function Header() {
               className={cn(
                 "h-9 w-10 global-radius border-[#E7E8EB] bg-background hover:bg-foreground/10 text-foreground transition-all duration-100",
                 pathname === "/notifications" &&
-                  "border-primary/20 bg-primary/5 ",
+                "border-primary/20 bg-primary/5 ",
               )}
             >
               <span className="relative block">

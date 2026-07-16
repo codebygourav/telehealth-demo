@@ -58,7 +58,7 @@
                 <div class="diet-admin-label">Doctor</div>
                 <div class="diet-admin-readonly-value">
                     @if($record->doctor)
-                        Dr. {{ trim(($record->doctor->first_name ?? '').' '.($record->doctor->last_name ?? '')) }}
+                        {{ trim(($record->doctor->first_name ?? '').' '.($record->doctor->last_name ?? '')) }}
                     @else
                         Not assigned
                     @endif

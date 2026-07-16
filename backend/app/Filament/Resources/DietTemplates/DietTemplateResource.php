@@ -610,7 +610,7 @@ class DietTemplateResource extends Resource
                 $parts = array_filter([
                     "Started {$startDate}",
                     $contact,
-                    $plan->doctor ? 'Dr. ' . static::doctorDisplayName($plan->doctor) : null,
+                    $plan->doctor ? static::doctorDisplayName($plan->doctor) : null,
                 ]);
 
                 return [$plan->id => implode(' | ', $parts)];

@@ -73,7 +73,7 @@ class PrescriptionDraftResource extends Resource
 
                 TextColumn::make('doctor_name')
                     ->label('Doctor')
-                    ->state(fn($record) => $record->doctor ? 'Dr. ' . trim($record->doctor->first_name . ' ' . $record->doctor->last_name) : 'N/A')
+                    ->state(fn($record) => $record->doctor ? ' ' . trim($record->doctor->first_name . ' ' . $record->doctor->last_name) : 'N/A')
                     ->searchable(query: function ($query, $search) {
                         $query->whereHas('doctor', function ($q) use ($search) {
                             $q->where('first_name', 'like', "%{$search}%")
@@ -203,7 +203,7 @@ class PrescriptionDraftResource extends Resource
 
                     TextEntry::make('doctor_name')
                         ->label('Doctor')
-                        ->state(fn($record) => $record->doctor ? 'Dr. ' . trim($record->doctor->first_name . ' ' . $record->doctor->last_name) : 'N/A'),
+                        ->state(fn($record) => $record->doctor ? ' ' . trim($record->doctor->first_name . ' ' . $record->doctor->last_name) : 'N/A'),
 
                     TextEntry::make('patient_name')
                         ->label('Patient')

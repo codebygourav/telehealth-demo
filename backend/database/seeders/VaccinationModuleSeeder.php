@@ -50,7 +50,7 @@ class VaccinationModuleSeeder extends Seeder
         $user = User::firstOrCreate(
             ['email' => 'vaccination.doctor@example.com'],
             [
-                'name' => 'Dr. Vaccination Demo',
+                'name' => 'Vaccination Demo',
                 'slug' => 'dr-vaccination-demo',
                 'phone' => '9800000001',
                 'email_verified_at' => now(),
@@ -551,7 +551,7 @@ class VaccinationModuleSeeder extends Seeder
                     'site' => 'Left thigh',
                     'dose_amount' => $firstDose->vaccination?->dosage_information ?: '0.5 ml',
                     'given_at' => 'Demo Clinic',
-                    'given_by' => 'Dr. Vaccination Demo',
+                    'given_by' => 'Vaccination Demo',
                     'doctor_notes' => 'First dose completed successfully during routine visit.',
                     'side_effect_observed' => 'No immediate side effects observed.',
                     'patient_reaction' => 'Normal',

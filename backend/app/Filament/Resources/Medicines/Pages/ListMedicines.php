@@ -335,7 +335,7 @@ class ListMedicines extends ListRecords
                         'medicine_name' => (string) ($medicine['medicine_name'] ?? 'Unknown medicine'),
                         'medicine_source' => (string) ($medicine['medicine_source'] ?? 'unknown'),
                         'doctor_name' => $draft->doctor
-                            ? 'Dr. ' . trim($draft->doctor->first_name . ' ' . $draft->doctor->last_name)
+                            ? '' . trim($draft->doctor->first_name . ' ' . $draft->doctor->last_name)
                             : 'Unknown Doctor',
                         'patient_name' => $draft->patient
                             ? trim($draft->patient->first_name . ' ' . $draft->patient->last_name)

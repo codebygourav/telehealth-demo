@@ -43,7 +43,7 @@ class DisplayScreenSettingSeeder extends Seeder
                 'voice_enabled' => true,
                 'voice_language' => 'en-US',
                 'voice_name' => '',
-                'announcement_template' => 'Token {token_number}, please proceed to Room {room_number}, Dr. {doctor_name}.',
+                'announcement_template' => 'Token {token_number}, please proceed to Room {room_number}, {doctor_name}.',
                 'badge_label' => 'Display Content Slider',
                 'empty_slide_title' => 'No display content assigned',
                 'empty_slide_text' => 'Add at least one active display content item for this doctor or screen.',

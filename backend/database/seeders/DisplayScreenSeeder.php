@@ -23,14 +23,14 @@ class DisplayScreenSeeder extends Seeder
         }
 
         foreach ($doctors as $doctor) {
-            $name = 'Display Screen - Dr. ' . trim($doctor->first_name . ' ' . $doctor->last_name);
+            $name = 'Display Screen - ' . trim($doctor->first_name . ' ' . $doctor->last_name);
             $slug = 'display-screen-' . Str::slug($doctor->first_name . '-' . $doctor->last_name);
 
             DisplayScreen::updateOrCreate(
                 ['slug' => $slug],
                 [
                     'name' => $name,
-                    'description' => 'Dedicated 50/50 OPD display screen for Dr. ' . trim($doctor->first_name . ' ' . $doctor->last_name) . '.',
+                    'description' => 'Dedicated 50/50 OPD display screen for ' . trim($doctor->first_name . ' ' . $doctor->last_name) . '.',
                     'is_active' => true,
                     'settings' => [
                         'screen_name' => $name,

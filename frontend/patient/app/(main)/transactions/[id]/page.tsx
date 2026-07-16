@@ -253,7 +253,7 @@ export default function TransactionDetail({ params }: TransactionDetailProps) {
                         {transaction.doctor_name && (
                             <div className="px-6 py-5 flex justify-between items-center">
                                 <p className="text-gray-600">Doctor Name</p>
-                                <p className="font-medium text-gray-900">Dr. {transaction.doctor_name}</p>
+                                <p className="font-medium text-gray-900"> {transaction.doctor_name}</p>
                             </div>
                         )}
                     </div>

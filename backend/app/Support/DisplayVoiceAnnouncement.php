@@ -22,7 +22,7 @@ class DisplayVoiceAnnouncement
 
     public static function defaultTemplate(): string
     {
-        return 'Token {token_number}, please proceed to Room {room_number}, Dr. {doctor_name}.';
+        return 'Token {token_number}, please proceed to Room {room_number}, {doctor_name}.';
     }
 
     public static function languageHelpText(): string

@@ -177,7 +177,6 @@
                 <tr>
                     <td class="label">Doctor</td>
                     <td>
-                        Dr.
                         {{ trim(($doctor->first_name ?? '') . ' ' . ($doctor->last_name ?? '')) }}
                     </td>
                 </tr>

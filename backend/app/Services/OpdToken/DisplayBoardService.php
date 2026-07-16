@@ -140,7 +140,7 @@ class DisplayBoardService
             return [
                 'id' => $doctor->id,
                 'index' => $index,
-                'name' => 'Dr. ' . $displayName,
+                'name' => $displayName,
                 'initials' => $this->initialsFromName($displayName),
                 'department' => $department,
                 'sub_title' => $doctor->sub_title,

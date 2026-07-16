@@ -246,7 +246,7 @@
             <div class="rounded-xl border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-800 dark:bg-gray-900">
                 <h3 class="text-sm font-bold text-gray-950 dark:text-white">Doctor View</h3>
                 <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">Doctor sees active templates only, previews calculated values, assigns directly to the appointment patient account, then manages completion, reschedule, hold, skip, remarks, and booster doses.</p>
-                <p class="mt-3 text-xs font-semibold text-gray-500">Default doctor: Dr. {{ $doctorName }}</p>
+                <p class="mt-3 text-xs font-semibold text-gray-500">Default doctor:  {{ $doctorName }}</p>
             </div>
         </aside>
     </div>

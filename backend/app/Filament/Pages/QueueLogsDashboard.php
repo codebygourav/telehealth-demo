@@ -149,7 +149,7 @@ class QueueLogsDashboard extends Page
 
             $result[] = [
                 'id' => $doctor->id,
-                'name' => "Dr. {$doctor->first_name} {$doctor->last_name}",
+                'name' => "{$doctor->first_name} {$doctor->last_name}",
                 'initials' => $initials,
                 'department' => $dept,
                 'log_count_today' => $logCount,
@@ -612,7 +612,7 @@ class QueueLogsDashboard extends Page
             $result[] = [
                 'token' => $app->queue_number ?? '—',
                 'patient_name' => $app->patient ? "{$app->patient->first_name} {$app->patient->last_name}" : 'Faker Patient',
-                'doctor_name' => $app->doctor ? "Dr. {$app->doctor->first_name} {$app->doctor->last_name}" : '—',
+                'doctor_name' => $app->doctor ? "{$app->doctor->first_name} {$app->doctor->last_name}" : '—',
                 'phone' => $app->patient?->mobile_no ?? '—',
                 'booked_time' => $app->appointment_time ? Carbon::parse($app->appointment_time)->format('H:i') : '—',
                 'check_in' => $checkInTime,
@@ -746,7 +746,7 @@ class QueueLogsDashboard extends Page
 
         $doctor = Doctor::find($this->logDoctorId);
 
-        return $doctor ? "Dr. {$doctor->first_name} {$doctor->last_name} Audit Trail" : 'Doctor Audit Trail';
+        return $doctor ? "{$doctor->first_name} {$doctor->last_name} Audit Trail" : 'Doctor Audit Trail';
     }
 
     public function getCurrentDoctorDescription(): string
@@ -940,7 +940,7 @@ class QueueLogsDashboard extends Page
                     
                     fputcsv($file, [
                         Carbon::parse($dateStr)->format('d/m/Y'),
-                        "Dr. {$doc->first_name} {$doc->last_name}",
+                        "{$doc->first_name} {$doc->last_name}",
                         $deptName,
                         $room,
                         count($stats['shift_intervals']) ? explode(' - ', $stats['shift_intervals'][0])[0] : '—',
@@ -1021,7 +1021,7 @@ class QueueLogsDashboard extends Page
 
                     fputcsv($file, [
                         $app->appointment_date->format('d/m/Y'),
-                        "Dr. {$doc->first_name} {$doc->last_name}",
+                        "{$doc->first_name} {$doc->last_name}",
                         $app->queue_number ?? '—',
                         $app->patient ? "{$app->patient->first_name} {$app->patient->last_name}" : 'Faker Patient',
                         $app->patient?->mobile_no ?? '—',
@@ -1066,7 +1066,7 @@ class QueueLogsDashboard extends Page
 
             foreach ($logs as $log) {
                 $details = $this->getLogDetails($log);
-                $docName = $log->doctor ? "Dr. {$log->doctor->first_name} {$log->doctor->last_name}" : '—';
+                $docName = $log->doctor ? "{$log->doctor->first_name} {$log->doctor->last_name}" : '—';
                 
                 $notificationSent = in_array($log->action, ['check_in', 'start', 'complete', 'skip']) ? 'Yes' : 'No';
 

@@ -31,7 +31,7 @@ export default function DoctorInfoCard({ doctor, appointment_status }: DoctorInf
                                 {doctor?.department || "Cardiology"}
                             </p>
                             <h2 className="text-2xl font-bold text-[#1F1E1E] mt-1">
-                                {doctor?.name || "Dr. Amit Sharma"}
+                                {doctor?.name || "Amit Sharma"}
                             </h2>
 
                             {/* Status Badge - Visible on mobile only (below name) */}

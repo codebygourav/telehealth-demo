@@ -139,7 +139,7 @@ const Home = () => {
             {/* Welcome Section */}
             <section className="border-light-gray p-5 rounded-lg shadow-[0px_2px_4px_0px_#0000001A] mb-5">
                 <h1 className="text-[#1F1E1E] font-bold text-2xl">
-                    Welcome back, Dr. {user?.first_name || dashboard?.first_name || "Doctor"} {user?.last_name || dashboard?.last_name || ""}
+                    Welcome back,  {user?.first_name || dashboard?.first_name || "Doctor"} {user?.last_name || dashboard?.last_name || ""}
                 </h1>
                 <p className="text-[#4D4D4D] text-base mt-1">
                     Manage your consultations, review patient records, and deliver quality care seamlessly from your dashboard.

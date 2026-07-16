@@ -140,7 +140,7 @@ class DoctorAdvertisementForm
                             $name = trim(($record->first_name ?? '') . ' ' . ($record->last_name ?? ''));
                             $label = $name !== '' ? $name : ($record->user?->name ?? 'Doctor');
 
-                            return 'Dr. ' . $label . ($record->doctor_code ? " ({$record->doctor_code})" : '');
+                            return $label . ($record->doctor_code ? " ({$record->doctor_code})" : '');
                         })
                         ->searchable()
                         ->preload()

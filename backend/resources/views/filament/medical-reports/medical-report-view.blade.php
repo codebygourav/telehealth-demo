@@ -209,7 +209,7 @@
                                     alt="Dr Avatar">
                                 <div>
                                     <p class="text-xs text-gray-500 font-bold uppercase">Doctor In-Charge</p>
-                                    <p class="font-bold text-gray-900 dark:text-white text-sm">Dr.
+                                    <p class="font-bold text-gray-900 dark:text-white text-sm">
                                         {{ $report->doctor->user?->name }}
                                     </p>
                                     <p class="text-xs text-gray-500">

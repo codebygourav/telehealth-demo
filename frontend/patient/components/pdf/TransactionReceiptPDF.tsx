@@ -95,7 +95,7 @@ export const TransactionReceiptPDF: React.FC<TransactionReceiptPDFProps> = ({
                 [
                     'Name:',
                     `${user?.first_name || ''} ${user?.last_name || ''}`.trim() ||
-                        'N/A',
+                    'N/A',
                 ],
                 ['Email:', user?.email || 'N/A'],
                 ['Phone:', user?.mobile_no || 'N/A'],
@@ -129,9 +129,9 @@ export const TransactionReceiptPDF: React.FC<TransactionReceiptPDFProps> = ({
             tableData.push([
                 'Paid To',
                 transaction.paid_to ||
-                    (transaction.doctor_name
-                        ? `Dr. ${transaction.doctor_name}`
-                        : 'N/A'),
+                (transaction.doctor_name
+                    ? `${transaction.doctor_name}`
+                    : 'N/A'),
             ]);
 
             if (transaction.order_id) {
@@ -142,7 +142,7 @@ export const TransactionReceiptPDF: React.FC<TransactionReceiptPDFProps> = ({
                 'Payment Method',
                 transaction.payment_method
                     ? transaction.payment_method.charAt(0).toUpperCase() +
-                      transaction.payment_method.slice(1)
+                    transaction.payment_method.slice(1)
                     : 'N/A',
             ]);
 

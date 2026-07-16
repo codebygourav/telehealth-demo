@@ -221,7 +221,7 @@
                             {{ strtoupper(substr($doctor->first_name, 0, 1) . substr($doctor->last_name, 0, 1)) }}
                         </div>
                         <div class="min-w-0">
-                            <h2 class="text-xl font-bold text-gray-900 dark:text-white truncate">Dr. {{ $doctor->first_name }} {{ $doctor->last_name }} - Queue Management</h2>
+                            <h2 class="text-xl font-bold text-gray-900 dark:text-white truncate"> {{ $doctor->first_name }} {{ $doctor->last_name }} - Queue Management</h2>
                             <p class="text-xs text-gray-500 dark:text-gray-400 mt-1 flex flex-wrap items-center gap-x-3 gap-y-1">
                                 <span>Room: <strong>{{ $doctor->address_line2 ?: 'Room 204' }}</strong></span>
                                 <span class="hidden sm:inline">•</span>
@@ -297,7 +297,7 @@
 
                     <div class="bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-2xl p-6 shadow-sm">
                         <h2 class="text-xl font-bold text-gray-900 dark:text-white">Queue Audit Logs</h2>
-                        <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Single doctor audit trail for Dr. {{ $doctor->first_name }} {{ $doctor->last_name }}.</p>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Single doctor audit trail for  {{ $doctor->first_name }} {{ $doctor->last_name }}.</p>
                     </div>
 
                     <div class="bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-2xl p-6 shadow-sm">
@@ -412,7 +412,7 @@
                                                     </span>
 
                                                     <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-primary-50 text-primary dark:bg-primary-950/20 border border-primary-100 dark:border-primary-900/60">
-                                                        Dr. {{ $doctorName !== '' ? $doctorName : 'N/A' }}
+                                                         {{ $doctorName !== '' ? $doctorName : 'N/A' }}
                                                     </span>
 
                                                     <span class="text-[11px] font-semibold text-gray-450 dark:text-gray-500">

@@ -355,7 +355,7 @@ class DisplayScreenResource extends Resource
             ->orderBy('last_name')
             ->get()
             ->mapWithKeys(fn (Doctor $doctor) => [
-                $doctor->id => 'Dr. ' . ($doctor->user?->name ?: trim($doctor->first_name . ' ' . $doctor->last_name)),
+                $doctor->id => ($doctor->user?->name ?: trim($doctor->first_name . ' ' . $doctor->last_name)),
             ])
             ->toArray();
     }

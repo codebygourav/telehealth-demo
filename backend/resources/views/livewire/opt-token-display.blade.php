@@ -43,7 +43,7 @@
             :enabled="(bool) ($board['voice_enabled'] ?? false)"
             :language="$board['voice_language'] ?? 'en-US'"
             :voice-name="$board['voice_name'] ?? ''"
-            :template="$board['announcement_template'] ?? 'Token {token_number}, please proceed to Room {room_number}, Dr. {doctor_name}.'"
+            :template="$board['announcement_template'] ?? 'Token {token_number}, please proceed to Room {room_number},  {doctor_name}.'"
         />
         @if (! $authenticated)
             <div class="auth-shell">

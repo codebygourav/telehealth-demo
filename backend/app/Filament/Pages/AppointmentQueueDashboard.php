@@ -459,7 +459,7 @@ class AppointmentQueueDashboard extends Page
 
             $result[] = [
                 'id' => $doctor->id,
-                'name' => "Dr. {$doctor->first_name} {$doctor->last_name}",
+                'name' => "{$doctor->first_name} {$doctor->last_name}",
                 'initials' => $initials,
                 'department' => $dept,
                 'room' => $doctor->address_line2 ?: 'Room ' . rand(101, 305),

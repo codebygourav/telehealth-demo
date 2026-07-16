@@ -317,11 +317,10 @@ export default function WeeklyMealChart() {
                                 key={`plan-toggle-${plan.id}`}
                                 type="button"
                                 onClick={() => setSelectedPlanId(plan.id)}
-                                className={`rounded-md border px-3 py-1.5 text-left transition-all ${
-                                    isActive
+                                className={`rounded-md border px-3 py-1.5 text-left transition-all ${isActive
                                         ? 'border-primary bg-primary/10 text-primary'
                                         : 'border-[#BFD4F5] bg-white text-[#1F1E1E] hover:border-primary/35 hover:bg-primary/5'
-                                }`}
+                                    }`}
                             >
                                 <span className="block text-[11px] font-bold leading-tight">{plan.template_name || `Diet Plan ${index + 1}`}</span>
                                 <span className="block text-[10px] font-semibold opacity-75">Assigned: {assignedLabel}</span>
@@ -351,7 +350,7 @@ export default function WeeklyMealChart() {
                         ⏱️ {activePlan.duration_days} Days
                     </span>
                     <span className="inline-flex items-center gap-1 rounded-full bg-slate-100 px-2.5 py-1 font-semibold text-slate-800">
-                        🧑‍⚕️ Dr. {activePlan.doctor_name || 'Doctor'}
+                        {activePlan.doctor_name || 'Doctor'}
                     </span>
                 </div>
             </div>
@@ -365,11 +364,10 @@ export default function WeeklyMealChart() {
                                 key={tab}
                                 type="button"
                                 onClick={() => setMealTab(tab)}
-                                className={`rounded-full border px-3 py-1.5 text-xs font-semibold transition-all ${
-                                    mealTab === tab
+                                className={`rounded-full border px-3 py-1.5 text-xs font-semibold transition-all ${mealTab === tab
                                         ? 'border-primary bg-primary/10 text-primary'
                                         : 'border-[#BFD4F5] bg-white text-[#4D4D4D] hover:border-primary/35 hover:text-primary'
-                                }`}
+                                    }`}
                             >
                                 {tab[0].toUpperCase() + tab.slice(1)}
                             </button>
@@ -413,11 +411,10 @@ export default function WeeklyMealChart() {
                                 key={`${day.date || day.day_number}-${day.id}`}
                                 type="button"
                                 onClick={() => setSelectedDayNumber(day.day_number)}
-                                className={`relative min-w-20 rounded-md border px-3 py-2.5 text-center transition-all duration-200 ${
-                                    isSelected
+                                className={`relative min-w-20 rounded-md border px-3 py-2.5 text-center transition-all duration-200 ${isSelected
                                         ? 'border-primary bg-primary text-white shadow-sm shadow-primary/20'
                                         : 'border-[#BFD4F5] bg-[#F7FAFF] text-[#1F1E1E] hover:border-primary/35 hover:bg-primary/5'
-                                }`}
+                                    }`}
                             >
                                 <span className={`text-[9px] font-bold uppercase tracking-wider ${isSelected ? 'text-white/80' : 'text-[#7A7A7A]'}`}>
                                     {date ? format(date, 'EEE') : day.week_day.slice(0, 3)}
@@ -456,7 +453,7 @@ export default function WeeklyMealChart() {
                         </div>
                         {selectedDayMeals.length > 0 && (
                             <div className="mt-3 h-1.5 w-full rounded-full bg-slate-100 overflow-hidden">
-                                <div 
+                                <div
                                     className="h-full bg-primary transition-all duration-300"
                                     style={{ width: `${(completedMeals / selectedDayMeals.length) * 100}%` }}
                                 />
@@ -605,11 +602,10 @@ export default function WeeklyMealChart() {
                             return (
                                 <article
                                     key={`${meal.occurrence_date || selectedDay?.date || 'day'}-${meal.id}`}
-                                    className={`border bg-white p-3.5 global-radius shadow-sm transition-all duration-200 ${
-                                        isCompleted 
-                                            ? 'border-[#CFE8D7] bg-[#F2FBF5]' 
+                                    className={`border bg-white p-3.5 global-radius shadow-sm transition-all duration-200 ${isCompleted
+                                            ? 'border-[#CFE8D7] bg-[#F2FBF5]'
                                             : 'border-[#BFD4F5] hover:border-primary/25 hover:shadow-md'
-                                    }`}
+                                        }`}
                                 >
                                     <div className="flex flex-col sm:flex-row sm:items-center gap-3 justify-between">
                                         <button
@@ -620,11 +616,10 @@ export default function WeeklyMealChart() {
                                             }}
                                             className="flex items-start gap-3 flex-1 min-w-0 text-left"
                                         >
-                                                <div className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border ${
-                                                isCompleted 
-                                                    ? 'border-[#CFE8D7] bg-[#F2FBF5] text-green-700' 
+                                            <div className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border ${isCompleted
+                                                    ? 'border-[#CFE8D7] bg-[#F2FBF5] text-green-700'
                                                     : 'border-[#BFD4F5] bg-primary/5 text-primary'
-                                            }`}>
+                                                }`}>
                                                 <MealIcon className="h-4.5 w-4.5" />
                                             </div>
                                             <div className="min-w-0 flex-1">
@@ -653,28 +648,28 @@ export default function WeeklyMealChart() {
                                                     </p>
                                                 )}
 
-                                                            {(meal.meal_image || (meal.helpful_links || []).length > 0) && (
-                                                                <div className="mt-2 overflow-x-auto pb-1">
-                                                                    <div className="flex items-center gap-2 min-w-max">
-                                                                        {meal.meal_image && (
-                                                                            <a href={meal.meal_image} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 rounded-full border border-[#BFD4F5] bg-[#F4F8FF] px-2.5 py-1 text-[10px] font-semibold text-primary">
-                                                                                <Eye className="h-3 w-3" /> Meal image
-                                                                            </a>
-                                                                        )}
-                                                                        {(meal.helpful_links || []).map((link, idx) => (
-                                                                            <a
-                                                                                key={`plink-${meal.id}-${idx}`}
-                                                                                href={link.url}
-                                                                                target="_blank"
-                                                                                rel="noreferrer"
-                                                                                className="inline-flex items-center gap-1 rounded-full border border-[#CFE8D7] bg-[#F2FBF5] px-2.5 py-1 text-[10px] font-semibold text-green-700"
-                                                                            >
-                                                                                {String(link.type || 'link').toLowerCase() === 'youtube' ? 'YouTube' : (link.type || 'Link')}: {link.title || 'Open'}
-                                                                            </a>
-                                                                        ))}
-                                                                    </div>
-                                                                </div>
+                                                {(meal.meal_image || (meal.helpful_links || []).length > 0) && (
+                                                    <div className="mt-2 overflow-x-auto pb-1">
+                                                        <div className="flex items-center gap-2 min-w-max">
+                                                            {meal.meal_image && (
+                                                                <a href={meal.meal_image} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 rounded-full border border-[#BFD4F5] bg-[#F4F8FF] px-2.5 py-1 text-[10px] font-semibold text-primary">
+                                                                    <Eye className="h-3 w-3" /> Meal image
+                                                                </a>
                                                             )}
+                                                            {(meal.helpful_links || []).map((link, idx) => (
+                                                                <a
+                                                                    key={`plink-${meal.id}-${idx}`}
+                                                                    href={link.url}
+                                                                    target="_blank"
+                                                                    rel="noreferrer"
+                                                                    className="inline-flex items-center gap-1 rounded-full border border-[#CFE8D7] bg-[#F2FBF5] px-2.5 py-1 text-[10px] font-semibold text-green-700"
+                                                                >
+                                                                    {String(link.type || 'link').toLowerCase() === 'youtube' ? 'YouTube' : (link.type || 'Link')}: {link.title || 'Open'}
+                                                                </a>
+                                                            ))}
+                                                        </div>
+                                                    </div>
+                                                )}
                                             </div>
                                         </button>
 

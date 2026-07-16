@@ -14,7 +14,7 @@
 @php
 $doctor = is_array($doctor) ? $doctor : [];
 
-$doctorName = $doctor['name'] ?? 'Dr. Doctor';
+$doctorName = $doctor['name'] ?? 'Doctor';
 $doctorDepartment = $doctor['department'] ?? 'General Practice';
 $doctorExperience = $doctor['experience'] ?? '';
 $doctorInitials = $doctor['initials'] ?? 'DR';

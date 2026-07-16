@@ -105,7 +105,7 @@
                             @if($record->doctor)
                                 <div class="flex items-center gap-1">
                                     <x-heroicon-m-user-circle class="w-4 h-4 text-gray-400" />
-                                    <span>Prescribing Doctor: <strong class="text-gray-700 dark:text-gray-300">Dr. {{ $doctorName }}</strong></span>
+                                    <span>Prescribing Doctor: <strong class="text-gray-700 dark:text-gray-300"> {{ $doctorName }}</strong></span>
                                 </div>
                             @endif
                         </div>

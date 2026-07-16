@@ -43,7 +43,7 @@ class DoctorAdvertisementInfolist
                         $name = trim(($doctor->first_name ?? '') . ' ' . ($doctor->last_name ?? ''));
                         $label = $name !== '' ? $name : ($doctor->user?->name ?? 'Doctor');
 
-                        return 'Dr. ' . $label;
+                        return '' . $label;
                     });
 
                     return $doctors->isNotEmpty() ? $doctors->implode(', ') : 'All Doctors';

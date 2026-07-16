@@ -45,7 +45,7 @@
                             @endphp
                             <tr class="hover:bg-gray-50 dark:hover:bg-white/5">
                                 <td class="px-4 py-3 align-top text-gray-900 dark:text-white">
-                                    {{ $draft->doctor ? 'Dr. ' . trim($draft->doctor->first_name . ' ' . $draft->doctor->last_name) : 'Unknown Doctor' }}
+                                    {{ $draft->doctor ? ' ' . trim($draft->doctor->first_name . ' ' . $draft->doctor->last_name) : 'Unknown Doctor' }}
                                 </td>
                                 <td class="px-4 py-3 align-top text-gray-600 dark:text-gray-300">
                                     {{ $draft->patient ? trim($draft->patient->first_name . ' ' . $draft->patient->last_name) : 'Unknown Patient' }}
