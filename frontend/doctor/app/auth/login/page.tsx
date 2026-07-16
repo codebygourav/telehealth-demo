@@ -101,7 +101,7 @@ const LoginPage = () => {
 
                     await login(userData, token || "");
 
-                    router.push("/");
+                    router.push("/doctor");
 
                     resolve();
                 },
