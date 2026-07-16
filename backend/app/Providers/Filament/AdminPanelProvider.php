@@ -156,18 +156,18 @@ class AdminPanelProvider extends PanelProvider
     protected function getPrimaryColor(): string
     {
         try {
-            return Setting::getValue('app', 'primary_color', '#055bd9') ?? '#055bd9';
+            return Setting::getValue('app', 'primary_color', '#B51E23') ?? '#B51E23';
         } catch (\Exception $e) {
-            return '#055bd9';
+            return '#B51E23';
         }
     }
 
     protected function getSecondaryColor(): string
     {
         try {
-            return Setting::getValue('app', 'secondary_color', '#055bd9') ?? '#055bd9';
+            return Setting::getValue('app', 'secondary_color', '#B51E23') ?? '#B51E23';
         } catch (\Exception $e) {
-            return '#055bd9';
+            return '#B51E23';
         }
     }
 

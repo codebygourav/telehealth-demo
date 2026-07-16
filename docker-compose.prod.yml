@@ -63,11 +63,12 @@ services:
     container_name: dr-sushil-backend-web
 
     ports:
-      - "8210:80"
+      - "8210:443"
 
     volumes:
       - ./backend:/var/www/html
       - ./backend/nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./backend/certs:/etc/nginx/certs:ro
 
     depends_on:
       - app

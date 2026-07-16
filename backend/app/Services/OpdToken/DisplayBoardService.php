@@ -35,7 +35,7 @@ class DisplayBoardService
 
         return [
             'brand' => setting('app.name', config('app.name', 'Hospital Display')),
-            'primary_color' => setting('app.primary_color', '#055bd9'),
+            'primary_color' => setting('app.primary_color', '#B51E23'),
             'secondary_color' => setting('app.secondary_color', '#22c55e'),
             'display' => $display,
             'now' => Carbon::now()->toIso8601String(),

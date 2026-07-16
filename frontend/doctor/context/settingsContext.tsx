@@ -20,8 +20,8 @@ const defaultSettings: Settings = {
   appName: "Telehealth",
   logoUrl: null,
   faviconUrl: null,
-  primaryColor: "#055bd9",
-  secondaryColor: "#055bd9bf",
+  primaryColor: "#B51E23",
+  secondaryColor: "#B51E23bf",
 };
 
 const SettingsContext = createContext<SettingsContextType>({
@@ -40,13 +40,13 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
         if (response.data?.success && response.data?.data) {
           const data = response.data.data;
           const appName = data.app?.name || "Telehealth";
-          const logoUrl = data.app?.logo || null;
-          const faviconUrl = data.app?.favicon || null;
-          const primaryColor = data.app?.primary_color || "#055bd9";
-          
-          // Clean the hex code to exactly 7 characters (e.g. #055bd9)
+          const primaryColor = data.doctor_theme?.primary_color || data.app?.primary_color || "#B51E23";
+          const logoUrl = data.doctor_theme?.logo || data.app?.logo || null;
+          const faviconUrl = data.doctor_theme?.favicon || data.app?.favicon || null;
+
+          // Clean the hex code to exactly 7 characters (e.g. #B51E23)
           const cleanHex = primaryColor.startsWith("#") ? primaryColor.substring(0, 7) : primaryColor;
-          
+
           // Append 'bf' for 75% opacity dynamic secondary color
           const secondaryColor = cleanHex + "bf";
 
@@ -63,7 +63,7 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
           document.documentElement.style.setProperty("--primary-foreground", "#ffffff");
           document.documentElement.style.setProperty("--ring", cleanHex);
           document.documentElement.style.setProperty("--secondary", secondaryColor);
-          
+
           // Dynamic light primary tint (10% opacity) for background classes
           document.documentElement.style.setProperty("--primary-light", cleanHex + "1a");
           document.documentElement.style.setProperty("--color-primary-container", cleanHex);

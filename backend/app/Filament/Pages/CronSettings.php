@@ -92,7 +92,7 @@ class CronSettings extends Page
                     ->schema([
                         Placeholder::make('manage_link')
                             ->label('')
-                            ->content(new HtmlString('<div style="padding: 10px 0;"><a href="' . route('filament.admin.resources.cron-jobs.index') . '" style="background:#055bd9; color:white; padding:10px 20px; border-radius:8px; text-decoration:none; font-weight:700; font-size:13px; box-shadow:0 2px 4px rgba(5,91,217,0.2); transition:all 0.2s;" onmouseover="this.style.background=\'#044ab0\'" onmouseout="this.style.background=\'#055bd9\'">Manage Cron Jobs & Logs &rarr;</a></div>')),
+                            ->content(new HtmlString('<div style="padding: 10px 0;"><a href="' . route('filament.admin.resources.cron-jobs.index') . '" style="background:var(--primary); color:white; padding:10px 20px; border-radius:8px; text-decoration:none; font-weight:700; font-size:13px; box-shadow:0 2px 4px rgba(5,91,217,0.2); transition:all 0.2s;" onmouseover="this.style.background=\'var(--primary-hover)\'" onmouseout="this.style.background=\'var(--primary)\'">Manage Cron Jobs & Logs &rarr;</a></div>')),
                     ])
                     ->columnSpanFull(),
 

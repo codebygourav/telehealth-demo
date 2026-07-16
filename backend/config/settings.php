@@ -22,8 +22,8 @@ return [
                     'logo' => ['type' => 'file', 'label' => 'Logo', 'directory' => 'settings', 'is_public' => true],
                     'logo_dark' => ['type' => 'file', 'label' => 'Logo (Dark)', 'directory' => 'settings', 'is_public' => true],
                     'favicon' => ['type' => 'file', 'label' => 'Favicon', 'directory' => 'settings', 'is_public' => true],
-                    'primary_color' => ['type' => 'color', 'label' => 'Primary Color', 'default' => '#055bd9', 'is_public' => true],
-                    'secondary_color' => ['type' => 'color', 'label' => 'Secondary Color', 'default' => '#055bd9', 'is_public' => true],
+                    'primary_color' => ['type' => 'color', 'label' => 'Primary Color', 'default' => '#B51E23', 'is_public' => true],
+                    'secondary_color' => ['type' => 'color', 'label' => 'Secondary Color', 'default' => '#B51E23', 'is_public' => true],
                     'global_stamp' => ['type' => 'file', 'label' => 'Global Hospital Stamp', 'directory' => 'settings/stamps', 'is_public' => true],
                 ],
             ],
@@ -753,6 +753,34 @@ return [
                     'child_age' => ['type' => 'number', 'label' => 'Global Child Age Limit', 'default' => 12, 'min' => 1, 'max' => 18, 'is_public' => true],
                     'booking_cutoff_value' => ['type' => 'number', 'label' => 'Default Booking Close Time', 'default' => 4, 'min' => 1, 'helper' => 'Defines how long before a session starts booking is automatically closed.', 'is_public' => true],
                     'booking_cutoff_unit' => ['type' => 'select', 'label' => 'Default Booking Close Time Unit', 'options' => ['minutes' => 'Minutes', 'hours' => 'Hours', 'days' => 'Days'], 'default' => 'hours', 'is_public' => true],
+                ],
+            ],
+        ],
+    ],
+
+    'theme_settings' => [
+        'label' => 'Frontend Themes',
+        'icon' => 'heroicon-o-paint-brush',
+        'description' => 'Manage branding and colors for Patient and Doctor frontend apps',
+        'sections' => [
+            'patient' => [
+                'label' => 'Patient App Theme',
+                'description' => 'Theme settings for Patient portal',
+                'fields' => [
+                    'patient_primary_color' => ['type' => 'color', 'label' => 'Primary Color', 'default' => '#B51E23', 'is_public' => true],
+                    'patient_secondary_color' => ['type' => 'color', 'label' => 'Secondary Color', 'default' => '#B51E23', 'is_public' => true],
+                    'patient_logo' => ['type' => 'file', 'label' => 'Logo', 'directory' => 'settings/themes', 'is_public' => true],
+                    'patient_favicon' => ['type' => 'file', 'label' => 'Favicon', 'directory' => 'settings/themes', 'is_public' => true],
+                ],
+            ],
+            'doctor' => [
+                'label' => 'Doctor App Theme',
+                'description' => 'Theme settings for Doctor portal',
+                'fields' => [
+                    'doctor_primary_color' => ['type' => 'color', 'label' => 'Primary Color', 'default' => '#B51E23', 'is_public' => true],
+                    'doctor_secondary_color' => ['type' => 'color', 'label' => 'Secondary Color', 'default' => '#B51E23', 'is_public' => true],
+                    'doctor_logo' => ['type' => 'file', 'label' => 'Logo', 'directory' => 'settings/themes', 'is_public' => true],
+                    'doctor_favicon' => ['type' => 'file', 'label' => 'Favicon', 'directory' => 'settings/themes', 'is_public' => true],
                 ],
             ],
         ],

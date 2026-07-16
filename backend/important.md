@@ -3,6 +3,10 @@ docker exec -it dr-sushil-backend-app php artisan config:clear
 docker exec -it dr-sushil-backend-app php artisan cache:clear
 docker exec -it dr-sushil-backend-app php artisan migrate
 
+
+~/…/Demo $ docker compose -f docker-compose.prod.yml down && docker compose -f docker-compose.prod.yml up -d
+
+
 ## Rebuild containers (after code push)
 
 For Patient - docker compose -f docker-compose.prod.yml up -d --build patient
@@ -82,3 +86,8 @@ chmod -R 775 /var/www/html/bootstrap/cache
 ## one-shot manual rescue
 
 docker exec -it dr-sushil-backend-app sh -lc 'chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache && find /var/www/html/storage /var/www/html/bootstrap/cache -type d -exec chmod 775 {} \; && find /var/www/html/storage /var/www/html/bootstrap/cache -type f -exec chmod 664 {} \; && php artisan storage:link && php artisan config:clear && php artisan cache:clear'
+
+
+git add -A
+git commit -m "feat: make colors, fonts, logo, and favicon dynamic from admin settings"
+git push origin main

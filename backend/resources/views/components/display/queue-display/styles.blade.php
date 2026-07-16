@@ -1,6 +1,6 @@
 <style>
     :root {
-        --display-blue: {{ $board['primary_color'] ?? '#055bd9' }};
+        --display-blue: {{ $board['primary_color'] ?? '#B51E23' }};
         --display-green: {{ $board['secondary_color'] ?? '#22c55e' }};
         --display-ink: #152033;
         --display-line: #dce3ec;
