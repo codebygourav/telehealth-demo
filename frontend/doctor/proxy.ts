@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
-const authRoutes = ['/doctor/auth/login', '/doctor/auth/register', '/doctor/auth/forgot-password', '/login', '/register'];
+const authRoutes = ['/auth/login', '/auth/register', '/auth/forgot-password', '/login', '/register'];
 
 export function proxy(request: NextRequest) {
     const token = request.cookies.get('doctor_token')?.value;
@@ -12,7 +12,7 @@ export function proxy(request: NextRequest) {
 
     // 🔒 1. If NOT logged in → redirect
     if (!token && !isAuthRoute) {
-        return NextResponse.redirect(new URL('/doctor/auth/login', request.url));
+        return NextResponse.redirect(new URL('/auth/login', request.url));
     }
 
     // 🔒 2. Doctor-only routes
