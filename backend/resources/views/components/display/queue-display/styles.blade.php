@@ -78,14 +78,14 @@
         width: 8px;
         height: 8px;
         border-radius: 999px;
-        background: #60a5fa;
-        box-shadow: 0 0 0 0 rgba(96, 165, 250, 0.65);
+        background: var(--primary-100);
+        box-shadow: 0 0 0 0 var(--primary-100);
         animation: refresh-pulse 1.35s infinite;
     }
 
     @keyframes refresh-pulse {
         0% {
-            box-shadow: 0 0 0 0 rgba(96, 165, 250, 0.55);
+            box-shadow: 0 0 0 0 var(--primary-100);
         }
 
         70% {
@@ -105,7 +105,7 @@
         align-items: center;
         justify-content: space-between;
         padding: 10px 24px;
-        box-shadow: 0 6px 24px rgba(5, 91, 217, 0.18);
+        box-shadow: 0 6px 24px var(--primary-100);
     }
 
     .brand {
@@ -528,7 +528,7 @@
         color: #fff;
         font-weight: 600;
         font-size: 15px;
-        box-shadow: 0 12px 28px rgba(5, 91, 217, 0.18);
+        box-shadow: 0 12px 28px var(--primary-100);
         cursor: pointer;
         transition: transform 160ms ease, box-shadow 160ms ease, filter 160ms ease;
     }
@@ -658,7 +658,7 @@
     }
 
     .doctor-avatar-fallback {
-        background: #0b74ff;
+        background: var(--primary);
         color: #fff;
         display: grid;
         place-items: center;
@@ -748,7 +748,7 @@
     }
 
     .slot-chip.current {
-        border-color: rgba(5, 91, 217, 0.18);
+        border-color: var(--primary-100);
         background: rgba(5, 91, 217, 0.08);
         color: #0b4fcf;
     }
@@ -902,7 +902,7 @@
     }
 
     .queue-row.focused {
-        border-color: rgba(5, 91, 217, 0.35);
+        border-color: var(--primary-100);
         z-index: 2;
         animation: queueRowFocusIn 0.38s ease both;
     }
@@ -912,20 +912,20 @@
     }
 
     .queue-row.focused.next {
-        border-color: #ef4444;
-        box-shadow: 0 16px 34px rgba(239, 68, 68, 0.16);
+        border-color: var(--primary);
+        box-shadow: 0 16px 34px var(--primary-100);
     }
 
     .queue-row.focused.active {
-        border-color: rgba(5, 91, 217, 0.55);
-        border: 1px solid rgba(5, 91, 217, 1);
+        border-color: var(--primary);
+        border: var(--primary);
     }
 
     .queue-row.active {
-        background: #075bd8;
+        background: var(--primary);
         border-color: transparent;
         color: #fff;
-        border: 1px solid rgba(5, 91, 217, 1);
+        border: var(--primary);
     }
 
     .queue-row.next {
