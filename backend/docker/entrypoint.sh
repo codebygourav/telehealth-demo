@@ -18,6 +18,16 @@ fix_permissions() {
     chmod 664 "$APP_DIR/storage/logs/laravel.log" || true
 }
 
+build_frontend_assets() {
+    # Build Vite assets if package.json exists and public/build/manifest.json is missing.
+    # This runs npm ci + npm run build once on first start (or after git pull wipes public/build).
+    if [ -f "$APP_DIR/package.json" ] && [ ! -f "$APP_DIR/public/build/manifest.json" ]; then
+        echo "[entrypoint] Building frontend assets with Vite..."
+        (cd "$APP_DIR" && npm ci --prefer-offline --no-audit && npm run build) || true
+        echo "[entrypoint] Vite build complete."
+    fi
+}
+
 run_artisan_safe() {
     command="$1"
 
@@ -33,6 +43,7 @@ run_artisan_safe() {
 }
 
 fix_permissions
+build_frontend_assets
 run_artisan_safe "storage:link"
 
 if [ "${APP_ENV:-local}" != "production" ]; then

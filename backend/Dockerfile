@@ -2,10 +2,16 @@ FROM php:8.3-fpm
 
 WORKDIR /var/www/html
 
+# Install PHP extensions
 RUN apt-get update && apt-get install -y \
     git curl unzip libpng-dev libonig-dev libxml2-dev libzip-dev libicu-dev libpq-dev \
     && docker-php-ext-configure intl \
     && docker-php-ext-install intl pdo_mysql mbstring bcmath gd zip exif \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Install Node.js 20 (LTS) for Vite asset builds
+RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
+    && apt-get install -y nodejs \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Install Composer
@@ -17,7 +23,6 @@ RUN chmod +x /usr/local/bin/app-entrypoint
 
 # Copy custom php.ini/uploads.ini settings
 COPY docker/uploads.ini /usr/local/etc/php/conf.d/uploads.ini
-
 
 RUN chown -R www-data:www-data /var/www/html
 

@@ -36,7 +36,7 @@ services:
     restart: unless-stopped
 
   # ==============================
-  # BACKEND APP
+  # BACKEND APP (PHP-FPM)
   # ==============================
   app:
     build:
@@ -55,7 +55,10 @@ services:
     restart: unless-stopped
 
   # ==============================
-  # NGINX
+  # NGINX (plain HTTP on port 80 inside container)
+  # SSL termination is handled by the HOST nginx (Let's Encrypt / Certbot)
+  # Locally:     http://localhost:8210
+  # Production:  host nginx → http://127.0.0.1:8210
   # ==============================
   web:
     image: nginx:alpine
@@ -63,12 +66,12 @@ services:
     container_name: dr-sushil-backend-web
 
     ports:
-      - "8210:443"
+      - "8210:80"   # Changed from 443 to 80 — host nginx handles TLS
 
     volumes:
       - ./backend:/var/www/html
       - ./backend/nginx/default.conf:/etc/nginx/conf.d/default.conf
-      - ./backend/certs:/etc/nginx/certs:ro
+      # certs volume removed — SSL terminated at host level
 
     depends_on:
       - app
