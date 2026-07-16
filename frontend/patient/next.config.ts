@@ -45,7 +45,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "dr-sushil.deploymeta.com",
+        hostname: "dr-sushil-clinic.deploymeta.com",
         pathname: "/**",
       },
     ],

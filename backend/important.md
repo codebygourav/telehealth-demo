@@ -14,8 +14,8 @@ For Backend - docker compose -f docker-compose.prod.yml up -d --build db app web
 Build on local machine for Linux AMD64:
 
 docker buildx build --platform linux/amd64 -t dr-sushil-doctor:latest \
- --build-arg NEXT_PUBLIC_API_BASE_URL=https://dr-sushil.deploymeta.com/api/v2 \
- --build-arg NEXT_PUBLIC_API_URL=https://dr-sushil.deploymeta.com/api/v2 \
+ --build-arg NEXT_PUBLIC_API_BASE_URL=https://dr-sushil-clinic.deploymeta.com/api/v2 \
+ --build-arg NEXT_PUBLIC_API_URL=https://dr-sushil-clinic.deploymeta.com/api/v2 \
  ./frontend/doctor --load
 
 Export image:
