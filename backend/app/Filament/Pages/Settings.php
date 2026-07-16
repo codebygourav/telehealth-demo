@@ -603,10 +603,11 @@ protected static ?string $description = 'Settings';
             }
 
             // Check if key exists
-            if (preg_match("/^{$key}=", $envContent)) {
+            // Safely match the env key using preg_quote to avoid delimiter issues
+            if (preg_match('/^' . preg_quote($key, '/') . '=/', $envContent)) {
                 // Update existing key
                 $envContent = preg_replace(
-                    "/^{$key}=.*/m",
+                    '/^' . preg_quote($key, '/') . '=.*/m',
                     "{$key}={$value}",
                     $envContent
                 );
