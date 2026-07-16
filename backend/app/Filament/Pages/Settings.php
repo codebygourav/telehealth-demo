@@ -619,10 +619,16 @@ protected static ?string $description = 'Settings';
 
         // Ensure .env is writable
         if (!is_writable($envPath)) {
-            @chmod($envPath, 0664);
+            @chmod($envPath, 0666);
         }
 
-        File::put($envPath, $envContent);
+        try {
+            File::put($envPath, $envContent);
+        } catch (\Exception $e) {
+            // Attempt to force permission and retry
+            @chmod($envPath, 0666);
+            File::put($envPath, $envContent);
+        }
     }
 
     public function clearCache(): void
