@@ -45,7 +45,7 @@ const ResetPasswordForm: React.FC<ResetPasswordFormProps> = ({ email, resetToken
     }, {
       onSuccess: () => {
         toast.success("Password reset successfully. Please login with your new password.");
-        router.push("/auth/login");
+        router.push("/doctor/auth/login");
       },
       onError: (error: any) => {
         console.error(error);

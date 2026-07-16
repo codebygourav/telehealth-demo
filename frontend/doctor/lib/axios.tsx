@@ -22,9 +22,9 @@ api.interceptors.response.use(
   (error) => {
     const requestUrl = String(error?.config?.url || "");
     const isAuthRequest =
-      requestUrl.includes("/auth/login") ||
-      requestUrl.includes("/auth/register") ||
-      requestUrl.includes("/auth/forgot-password");
+      requestUrl.includes("/doctor/auth/login") ||
+      requestUrl.includes("/doctor/auth/register") ||
+      requestUrl.includes("/doctor/auth/forgot-password");
 
     if (
       typeof window !== "undefined" &&

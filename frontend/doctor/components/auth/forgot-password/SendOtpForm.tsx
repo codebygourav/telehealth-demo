@@ -68,7 +68,7 @@ const SendOtpForm: React.FC<SendOtpFormProps> = ({ onSuccess }) => {
                     className="w-full"
                     disabled={isPending}
                 >
-                    <a href="/auth/login">Back to Login</a>
+                    <a href="/doctor/auth/login">Back to Login</a>
                 </Button>
             </form>
         </FormProvider>

@@ -27,7 +27,7 @@ export default function UnauthorizedPage() {
                 You are currently not logged in as a doctor. Please login with doctor credentials to continue.
             </p>
 
-            <Button onClick={() => { logout(); router.push("/auth/login"); }}>
+            <Button onClick={() => { logout(); router.push("/doctor/auth/login"); }}>
                 Login as Doctor
             </Button>
         </div>

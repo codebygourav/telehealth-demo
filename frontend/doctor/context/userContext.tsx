@@ -19,7 +19,7 @@ const USER_KEY = "@doctor_user";
 const TOKEN_KEY = "@token";
 const TOKEN_COOKIE = "doctor_token";
 const ROLE_COOKIE = "doctor_role";
-const LOGIN_PATH = "/auth/login";
+const LOGIN_PATH = "/doctor/auth/login";
 const EXPECTED_ROLE = "doctor";
 const LEGACY_TOKEN_KEYS = [
   TOKEN_KEY,
