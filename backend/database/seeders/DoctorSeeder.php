@@ -37,15 +37,10 @@ philosophy is simple — treat the person, not just the report.',
                 'description' => 'Senior consultant Pulmonologist and General Physician with extensive experience in treating
 respiratory and general medical conditions. Dedicated to evidence-based care and personalised
 patient management.',
-                'specializations_info' => 'Pneumonia, Bronchial Asthma, COPD, Interstitial Lung Diseases (ILD), Tuberculosis,
-Lung Cancer, Sleep Disorders (Obstructive Sleep Apnea), Pleural Effusion, Bronchoscopy',
-                'key_procedures_info' => 'Bronchoscopy with Biopsy and Bronchoalveolar Lavage (BAL),
-Thoracentesis (pleural fluid aspiration), Ultrasound-guided FNAC of lung/mediastinal,
-Non-invasive Ventilation (CPAP/BiPAP) for sleep apnoea and respiratory failure,
-Pulmonary Function Tests (PFT) interpretation and management',
+                'specializations_info' => 'Pneumonia, Bronchial Asthma, COPD, Interstitial Lung Diseases (ILD), Tuberculosis',
+                'key_procedures_info' => 'Bronchoscopy with Biopsy and Bronchoalveolar Lavage (BAL)',
                 'memberships_info' => 'Indian Chest Society, Indian Association of Bronchology, Indian Society of Critical Care Medicine, Association of Physicians of India, Indian Medical Association (IMA)',
-                'availability_info' => 'Fortis Hospital, Ludhiana (Mon-Fri 10 AM – 5 PM),
-Private Clinic, Sarabha Nagar (Mon,Wed,Fri 6 PM – 8 PM),Sat – 10 AM – 2 PM',
+                'availability_info' => 'Fortis Hospital, Ludhiana (Mon-Fri 10 AM – 5 PM),Private Clinic, Sarabha Nagar (Mon,Wed,Fri 6 PM – 8 PM),Sat – 10 AM – 2 PM',
                 'professional_experience_info' => [
                     [
                         'title' => 'Senior Residency',

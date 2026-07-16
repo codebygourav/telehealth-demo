@@ -26,7 +26,7 @@ class UserSeeder extends Seeder
 
         // Create or update super admin user
         $user = User::firstOrCreate(
-            ['email' => 'quickcoderzindia@gmail.com'],
+            ['email' => 'dr.sushilgupta@gmail.com'],
             [
                 'name' => 'Super Admin',
                 'password' => bcrypt('uFx5vs4WmXyjQpmz'), // Change this password after seeding
