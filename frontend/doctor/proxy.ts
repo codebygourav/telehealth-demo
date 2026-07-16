@@ -26,8 +26,11 @@ export function proxy(request: NextRequest) {
     // 🔁 3. Prevent logged-in users from accessing auth pages
     if (isAuthRoute && token && role) {
         if (role === 'doctor') {
-            return NextResponse.redirect(new URL('/', request.url));
+            // After successful doctor login, keep them on the doctor dashboard
+            return NextResponse.redirect(new URL('/doctor', request.url));
         }
+        // For other roles (e.g., patient) keep original behavior
+        return NextResponse.redirect(new URL('/', request.url));
     }
 
     return NextResponse.next();
