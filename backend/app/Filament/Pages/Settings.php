@@ -599,11 +599,11 @@ protected static ?string $description = 'Settings';
         foreach ($data as $key => $value) {
             // Escape value if it contains spaces
             if (preg_match('/\s/', (string)$value)) {
-                $value = '"' . $value . '"';
+                $value = "\"{$value}\"";
             }
 
             // Check if key exists
-            if (preg_match("/^{$key}=/m", $envContent)) {
+            if (preg_match("/^{$key}=", $envContent)) {
                 // Update existing key
                 $envContent = preg_replace(
                     "/^{$key}=.*/m",
@@ -614,6 +614,11 @@ protected static ?string $description = 'Settings';
                 // Add new key at the end
                 $envContent .= "\n{$key}={$value}";
             }
+        }
+
+        // Ensure .env is writable
+        if (!is_writable($envPath)) {
+            @chmod($envPath, 0664);
         }
 
         File::put($envPath, $envContent);
