@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Enums\{BloodGroupOption, DepartmentRole, GenderOption, MaritalStatus};
 use App\Enums\{LanguageOption};
+use App\Enums\UserRole;
 use App\Models\{Department, DepartmentDoctor, Doctor, User};
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
@@ -63,7 +64,7 @@ patient management.',
             $user->save();
 
             try {
-                $user->assignRole('doctor');
+                $user->assignRole(['doctor', UserRole::SuperAdmin->value]);
             } catch (\Throwable $e) {
             }
 
